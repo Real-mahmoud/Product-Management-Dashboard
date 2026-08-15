@@ -1,3 +1,4 @@
+// nav link 
 let navLinks= document.querySelectorAll(".nav-link");
 navLinks.forEach((link) => {
     link.addEventListener("click", function() {
@@ -8,7 +9,7 @@ navLinks.forEach((link) => {
     });
 });
 
-
+// chart 
 const ctx = document.getElementById("myChart").getContext("2d");
 
 const massPopChart = new Chart(ctx, {
@@ -42,6 +43,8 @@ const massPopChart = new Chart(ctx, {
     }
 }
 });
+
+
 const products = [
     {
         id: 1,
