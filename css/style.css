@@ -48,6 +48,8 @@ ul {
     padding:12px 16px;
     color: var(--light-blue-1);
     border-radius: var(--radius);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 .nav-link:hover {
     background: var(--hover-pill-color);
@@ -59,6 +61,7 @@ ul {
     border-radius: var(--radius);
 }
 
+/* button  */
 .btn {
     padding: 10px 16px;
     border-radius: var(--radius);
@@ -86,19 +89,38 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
+    transition: all 0.3s ease-in-out;
+}
+.statistic-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 20px rgba(59, 130, 246, 0.25);
 }
     
-
+.product-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+.product-name-img-container {
+    display: flex;
+    align-items: center;
+    gap:var(--gap);
+}
 /* ------------------------------ */
 
 body {
     font-family: var(--font-type);
     background-color: var(--main-bg);
     display: flex;
+    margin-left: 250px;
 }
 
 /* sidebar */
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 250px;
     height: 100vh;
     background-color: var(--sidebar-bg);
@@ -118,6 +140,7 @@ body {
     padding:12px 16px;
     margin: 8px 0 20px 0;
     background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -146,7 +169,7 @@ body {
 }
 .sidebar .logout {
     position: relative;
-    margin-top: 20px;
+    margin-top: 35px;
 }
 .sidebar .logout::before {
     content: '';
@@ -223,6 +246,7 @@ header .profile p {
 }
 .welcome h3 i {
     background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+    background-clip: text; /* standard property for compatibility */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -258,8 +282,9 @@ header .profile p {
     background: linear-gradient(135deg, #8a5cf622, #3b83f61e);
 }
 .statistic-card .card-title.two i {
-    color: #3B82F6;
-    background: linear-gradient(135deg, #3b82f622, #1d4ed81e);
+    color: #10B981;
+    background: linear-gradient(135deg, #5cf6d022, #3b83f61e);
+
 }
 .statistic-card .card-title.three i {
     color: #FACC15;
@@ -288,3 +313,61 @@ header .profile p {
     color: #10B981;
     font-weight: 600;
 }
+
+/* canvas  */
+.chart {
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--elevation-2);
+    border-radius: var(--radius);
+    max-width: 700px;
+    max-height: 400px;
+    transition: all 0.3s ease-in-out;
+
+}
+.chart:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.25);
+}
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+
+}
+.chart-header h3 {
+    color: var(--light-blue-1);
+}
+.chart-header select {
+    background-color: var(--elevation-2);
+    color: var(--light-blue-1);
+    border-radius: 4px;
+    padding: 0 4px;
+}
+canvas {
+    
+}
+
+/* recent products  */
+
+.recent-products {
+    padding: 20px;
+}
+.recent-products h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--light-blue-1);
+    margin-bottom: 20px;
+}
+.recent-products table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.recent-products table th, .recent-products table td {
+    padding: 12px 16px;
+    text-align: left;
+    color: var(--light-blue-1);
+}
+.recent-products table thead {
+    background-color: var(--elevation-2);
+}
+

@@ -15,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
+    <!-- chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>ProductHub</title>
 </head>
 <body>
@@ -149,9 +151,48 @@
                     <p><span>+2%</span> from last month</p>
                 </div>
             </div>
+            <div class="chart">
+                <div class="chart-header">
+                    <h3>Sales Overview</h3>
+                    <select name="This Month" id="">
+                        <option value="This month">January</option>
+                        <option value="This month">February</option>
+                        <option value="This month">March</option>
+                        <option value="This month">April</option>
+                        <option value="This month">May</option>
+                        <option value="This month">June</option>
+                        <option value="This month">July</option>
+                        <option value="This month" selected>August</option>
+                        <option value="This month">September</option>
+                        <option value="This month">October</option>
+                        <option value="This month">November</option>
+                        <option value="This month">December</option>
+                    </select>
+                        
+
+                </div>
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <section class="recent-products">
+                <h2>Recent Products</h2>
+                <table class="recent-products-table">
+                    <thead>
+                        <tr>
+                            <th>PRODUCT </th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                
+                </table>
+            </section>
         </section>
     </aside>
         
     
+    <script src="js/script.js"></script>
 </body>
 </html>
