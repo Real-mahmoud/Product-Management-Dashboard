@@ -1590,6 +1590,14 @@ header .profile p {
         margin-left: auto;
     }
 
+    .recent-products table td.comment-cell {
+        align-items: flex-start;
+        max-width: none;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
     .recent-products table td[data-label="Actions"] {
         justify-content: flex-end;
         padding-top: 8px;
