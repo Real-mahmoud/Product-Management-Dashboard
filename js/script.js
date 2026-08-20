@@ -397,6 +397,7 @@ function buildProductRow(product) {
     let tr=document.createElement("tr")
     let ProductNameAndImage= document.createElement("td");
     ProductNameAndImage.classList.add("product-name-img-container");
+    ProductNameAndImage.dataset.label = "Product";
 
     const productName = document.createElement("h4");
     productName.textContent = product.name;
@@ -409,16 +410,20 @@ function buildProductRow(product) {
 
     const category = document.createElement("td");
     category.classList.add("hide-mobile");
+    category.dataset.label = "Category";
     category.textContent = product.category;
 
     const price = document.createElement("td");
+    price.dataset.label = "Price";
     price.textContent = `$${product.price}`;
 
     const stock = document.createElement("td");
     stock.classList.add("hide-mobile");
+    stock.dataset.label = "Stock";
     stock.textContent = product.stock;
 
     const actions = document.createElement("td");
+    actions.dataset.label = "Actions";
     const actionButtons = productAction({
         onView: () => showItemDetails(product.name, {
             Category: product.category,
@@ -436,6 +441,7 @@ function buildProductRow(product) {
     const statusContent = document.createElement("span");
 
     status.classList.add("hide-mobile");
+    status.dataset.label = "Status";
     statusContent.textContent = product.status;
     status.append(statusContent)
     statusContent.classList.add("status")
@@ -630,30 +636,37 @@ function buildOrderRow(order) {
     const tr = document.createElement("tr");
 
     const id = document.createElement("td");
+    id.dataset.label = "Order ID";
     id.textContent = order.id;
 
     const customer = document.createElement("td");
+    customer.dataset.label = "Customer";
     customer.textContent = order.customer;
 
     const product = document.createElement("td");
     product.classList.add("hide-mobile");
+    product.dataset.label = "Product";
     product.textContent = order.product;
 
     const date = document.createElement("td");
     date.classList.add("hide-mobile");
+    date.dataset.label = "Date";
     date.textContent = order.date;
 
     const amount = document.createElement("td");
+    amount.dataset.label = "Amount";
     amount.textContent = `$${order.amount}`;
 
     const status = document.createElement("td");
     status.classList.add("hide-mobile");
+    status.dataset.label = "Status";
     const statusContent = document.createElement("span");
     statusContent.classList.add("order-status", order.status);
     statusContent.textContent = order.status;
     status.append(statusContent);
 
     const actions = document.createElement("td");
+    actions.dataset.label = "Actions";
     const actionButtons = productAction({
         onView: () => showItemDetails(`Order ${order.id}`, {
             Customer: order.customer,
@@ -868,6 +881,7 @@ function buildCustomerRow(customer) {
 
     const nameTd = document.createElement("td");
     nameTd.classList.add("customer-name-container");
+    nameTd.dataset.label = "Customer";
     const avatar = document.createElement("div");
     avatar.classList.add("customer-avatar");
     avatar.textContent = customer.name.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase();
@@ -876,28 +890,34 @@ function buildCustomerRow(customer) {
     nameTd.append(avatar, name);
 
     const email = document.createElement("td");
+    email.dataset.label = "Email";
     email.textContent = customer.email;
 
     const ordersTd = document.createElement("td");
     ordersTd.classList.add("hide-mobile");
+    ordersTd.dataset.label = "Orders";
     ordersTd.textContent = customer.orders;
 
     const spent = document.createElement("td");
     spent.classList.add("hide-mobile");
+    spent.dataset.label = "Total Spent";
     spent.textContent = `$${customer.spent.toLocaleString()}`;
 
     const joined = document.createElement("td");
     joined.classList.add("hide-mobile");
+    joined.dataset.label = "Joined";
     joined.textContent = customer.joined;
 
     const status = document.createElement("td");
     status.classList.add("hide-mobile");
+    status.dataset.label = "Status";
     const statusContent = document.createElement("span");
     statusContent.classList.add("customer-status", customer.status);
     statusContent.textContent = customer.status;
     status.append(statusContent);
 
     const actions = document.createElement("td");
+    actions.dataset.label = "Actions";
     const actionButtons = productAction({
         onView: () => showItemDetails(customer.name, {
             Email: customer.email,
@@ -1167,6 +1187,7 @@ function renderDataTablePage({ title, desc, searchPlaceholder, data, state, filt
             const tr = buildRow(row);
             tr.querySelectorAll("td").forEach((td, index) => {
                 if (hideMobileColumns.includes(index)) td.classList.add("hide-mobile");
+                td.dataset.label = headers[index];
             });
             tbody.append(tr);
         });

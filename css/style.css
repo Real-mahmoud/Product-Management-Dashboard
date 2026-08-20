@@ -1513,3 +1513,106 @@ header .profile p {
         height: 100px;
     }
 }
+
+@media (max-width: 768px) {
+    .recent-products {
+        overflow-x: visible;
+        padding: 14px;
+    }
+
+    .recent-products table {
+        width: 100%;
+        min-width: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .recent-products table thead {
+        display: none;
+    }
+
+    .recent-products table tbody,
+    .recent-products table tr,
+    .recent-products table td {
+        display: block;
+    }
+
+    .recent-products table tr {
+        background-color: var(--elevation-2);
+        border-radius: var(--radius);
+        padding: 6px 16px;
+        margin-bottom: 14px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .recent-products table td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .recent-products table td:last-child {
+        border-bottom: none;
+    }
+
+    .recent-products table td.hide-mobile {
+        display: flex;
+    }
+
+    .recent-products table td::before {
+        content: attr(data-label);
+        flex-shrink: 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #aeacc2;
+    }
+
+    .recent-products table td.product-name-img-container,
+    .recent-products table td.customer-name-container {
+        justify-content: flex-start;
+        padding-top: 14px;
+        border-bottom: none;
+    }
+
+    .recent-products table td.product-name-img-container::before,
+    .recent-products table td.customer-name-container::before {
+        display: none;
+    }
+
+    .recent-products table td .status,
+    .recent-products table td .order-status,
+    .recent-products table td .customer-status {
+        margin-left: auto;
+    }
+
+    .recent-products table td[data-label="Actions"] {
+        justify-content: flex-end;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .recent-products table td[data-label="Actions"]::before {
+        display: none;
+    }
+
+    .recent-products table td .action-container {
+        display: flex;
+        gap: 6px;
+    }
+
+    .recent-products table .empty-state {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 24px;
+    }
+
+    .recent-products table .empty-state::before {
+        display: none;
+    }
+}
