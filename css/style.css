@@ -1239,7 +1239,20 @@ header .profile p {
     }
 
     .recent-products table {
-        min-width: 640px;
+        min-width: 0;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .products-toolbar .product-search {
+        min-width: 100%;
+    }
+
+    .products-toolbar .product-filter {
+        flex: 1;
+        min-width: 140px;
     }
 
     .profile-dropdown {
