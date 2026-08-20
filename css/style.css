@@ -136,6 +136,16 @@ ul {
     display: flex;
     align-items: center;
     gap:var(--gap);
+    min-width: 0;
+}
+.product-name-img-container h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+.product-img {
+    flex-shrink: 0;
 }
 /* ------------------------------ */
 
@@ -143,7 +153,7 @@ body {
     font-family: var(--font-type);
     background-color: var(--main-bg);
     display: flex;
-    margin-left: 250px;
+    margin-left: 280px;
 }
 
 /* sidebar */
@@ -151,7 +161,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
+    width: 280px;
     height: 100vh;
     background-color: var(--sidebar-bg);
     display: flex;
@@ -178,7 +188,7 @@ body {
 .sidebar .logo::after {
     content: '';
     position: absolute;
-    width: 250px;
+    width: 280px;
     height: 2px;
     background-color: var(--light-blue-3);
     left: -18px;
@@ -204,7 +214,7 @@ body {
 .sidebar .logout::before {
     content: '';
     position: absolute;
-    width: 250px;
+    width: 280px;
     height: 2px;
     background-color: var(--light-blue-3);
     left: -18px;
@@ -350,24 +360,26 @@ header .profile p {
 
 /* chart-insights  */
 .chart-insights {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
 }
 
 .section-title {
-    width: 100%;
-    margin: 20px 20px 0;
+    grid-column: 1 / -1;
+    margin: 0;
     color: var(--light-blue-1);
 }
 
 /* canvas  */
 .chart {
-    margin: 20px;
+    margin: 0;
     padding: 20px;
     background-color: var(--elevation-2);
     border-radius: var(--radius);
     width: 100%;
-    max-width: 700px;
+    max-width: none;
     max-height: 400px;
     transition: all 0.3s ease-in-out;
 }
@@ -392,13 +404,12 @@ header .profile p {
 /* insights  */
 
 .insights {
-    flex: 1;
-    min-width: 320px;
-    margin: 15px;
+    margin: 0;
+    min-width: 0;
 }
 .insights-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
     margin-top: 14px;
  
@@ -409,16 +420,19 @@ header .profile p {
 }
 .insights .statistic-card {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: center;
     align-items: center;
     margin-left: 0;
 }
-.insights .statistic-card>p {
-    margin-top: 4px;
-}
-.insights .statistic-card .card-title{
+.insights .statistic-card .card-title {
     flex-direction: column;
     text-align: center;
+    min-width: 0;
+}
+.insights .statistic-card>p {
+    margin-top: 4px;
 }
 .insights .statistic-card .card-title i {
     margin: 0 0 4px 0;
@@ -559,9 +573,18 @@ header .profile p {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
+}
+
+.customer-name-container h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
 
 .customer-avatar {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1059,11 +1082,11 @@ header .profile p {
 
 @media (max-width: 1100px) {
     body {
-        margin-left: 210px;
+        margin-left: 240px;
     }
 
     .sidebar {
-        width: 210px;
+        width: 240px;
     }
 
     .sidebar .logo h2 {
@@ -1075,15 +1098,19 @@ header .profile p {
     }
 
     .sidebar .logo::after {
-        width: 210px;
+        width: 240px;
     }
 
     .sidebar .logout::before {
-        width: 210px;
+        width: 240px;
     }
 
     .statistics {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-insights {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1140,15 +1167,7 @@ header .profile p {
     }
 
     .chart-insights {
-        flex-direction: column;
-    }
-
-    .chart {
-        max-width: none;
-    }
-
-    .insights {
-        margin: 15px 20px;
+        grid-template-columns: 1fr;
     }
 
     .insights .statistic-card {
@@ -1198,12 +1217,12 @@ header .profile p {
     }
 
     .chart {
-        margin: 16px;
-        width: calc(100% - 32px);
+        margin: 0;
+        width: 100%;
     }
 
     .insights {
-        margin: 15px 16px;
+        margin: 0;
         min-width: 0;
     }
 
@@ -1277,14 +1296,18 @@ header .profile p {
     }
 
     .section-title {
-        margin: 14px 14px 0;
+        margin: 0;
         font-size: 1.1rem;
     }
 
-    .chart {
-        margin: 14px;
+    .chart-insights {
         padding: 14px;
-        width: calc(100% - 28px);
+    }
+
+    .chart {
+        margin: 0;
+        padding: 14px;
+        width: 100%;
         max-height: none;
     }
 
@@ -1300,11 +1323,17 @@ header .profile p {
     }
 
     .insights {
-        margin: 15px 14px;
+        margin: 0;
+        min-width: 0;
     }
 
     .insights-cards {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .insights .statistic-card {
+        padding: 16px;
     }
 
     .recent-products {
