@@ -17,6 +17,9 @@
     
     <!-- chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>ProductHub</title>
 </head>
 <body>
@@ -84,169 +87,131 @@
     <aside class="dashboard">
 
         <header>
-            <h2>Home</h2>
-            <div class="profile">
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <h2 id="page-title">Home</h2>
+            <div class="profile" id="profile-menu">
                 <img src="assets/images/photo_2026-07-12_09-52-53.jpg" alt="profile-img">
                 <div class="profile-info">
                     <h3>Mahmoud</h3>
                     <p>Admin</p>   
                 </div> 
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa-solid fa-chevron-down" id="profile-chevron"></i>
+
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <button class="dropdown-item" data-action="profile">
+                        <i class="fa-solid fa-user"></i> My Profile
+                    </button>
+                    <button class="dropdown-item" data-action="settings">
+                        <i class="fa-solid fa-gear"></i> Settings
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item danger" data-action="logout">
+                        <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                    </button>
+                </div>
             </div>
     
         </header>
 
         <section class="dashboard-content">
-            <div class="welcome-section">
-                <div class="welcome">
 
-                    <h3>Welcome Back, Mahmoud! <i class="fa-solid fa-heart"></i></h3>
-                    <p>Here's what's happening with your store today.</p>
-                </div>
-                <button class="btn"><i class="fa-solid fa-plus"></i> Add Product</button>
-            </div>
-
-            <div class="statistics">
-                <div class="statistic-card">
-                    <div class="card-title one">
-                        <i class="fa-solid fa-box"></i>
-                        <div>
-                            <h4>Total Products</h4>
-                            <p>128</p>
-                        </div>
-                    </div>
-                    <p><span>+12%</span> from last month</p>
-                </div>
-                <div class="statistic-card">
-                    <div class="card-title two">
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <div>
-                            <h4>Total Revenue</h4>
-                            <p>$45,231</p>
-                        </div>
-                    </div>
-                    <p><span>+2%</span> from last month</p>
-                </div>
-                  <div class="statistic-card">
-                    <div  class="card-title three">
-                        
-                        <i class="fa-solid fa-warehouse"></i>
-                        <div>
-                            <h4>Total Orders</h4>
-                            <p>256</p>
-                        </div>
-                    </div>
-                    <p><span>+5%</span> from last month</p>
-                </div>
-                <div class="statistic-card">
-                    <div class="card-title four">
-
-                        <i class="fa-solid fa-truck"></i>
-                        <div>
-                            <h4>Total Customers</h4>
-                            <p>342</p>
-                        </div>
-                    </div>
-                    <p><span>+3%</span> from last month</p>
-                </div>
-                
-            </div>
-
-            <section class="chart-insights">
-
-                <div class="chart">
-                <div class="chart-header">
-                    <h3>Sales Overview</h3>
-                    <select name="This Month" id="">
-                        <option value="This month">January</option>
-                        <option value="This month">February</option>
-                        <option value="This month">March</option>
-                        <option value="This month">April</option>
-                        <option value="This month">May</option>
-                        <option value="This month">June</option>
-                        <option value="This month">July</option>
-                        <option value="This month" selected>August</option>
-                        <option value="This month">September</option>
-                        <option value="This month">October</option>
-                        <option value="This month">November</option>
-                        <option value="This month">December</option>
-                    </select>
-                </div>
-                <canvas id="myChart"></canvas>
-            </div>
-
-            <section class="insights">
-                <h3>Insights</h3>
-                <div class="insights-cards">
-                    
-                     <div class="statistic-card">
-                    <div  class="card-title one">
-                        
-                        <i class="fa-solid fa-hourglass-half"></i>
-                        <div>
-                            <h4>Pending Orders</h4>
-                            <p>8</p>
-                        </div>
-                    </div>
-                    <p>Orders awaiting processing</p>
-                </div>
-                <div class="statistic-card">
-                    <div class="card-title two">
-                        <i class="fa-solid fa-people-group"></i>
-                        <div>
-                            <h4>New Customers</h4>
-                            <p>12</p>
-                        </div>
-                    </div>
-                    <p> Joined this month</p>
-                </div>
-                <div class="statistic-card">
-                    <div class="card-title three">
-
-                        <i class="fa-solid fa-truck"></i>
-                        <div>
-                            <h4>Low Stock Products</h4>
-                            <p>21</p>
-                        </div>
-                    </div>
-                    <p>Products running low</p>
-                </div>
-                <div class="statistic-card">
-                    <div class="card-title four">
-
-                        <i class="fa-solid fa-box-open"></i>
-                        <div>
-                            <h4>Out of Stock</h4>
-                            <p>20</p>
-                        </div>
-                    </div>
-                    <p>Product out of stock</p>
-                </div>
-                </div>
-               
-            </section>
-            </section>
-            
-       
-
-            <section class="recent-products">
-                <h2>Recent Products</h2>
-                <table class="recent-products-table">
-                    <thead>
-                        <tr>
-                            <th>PRODUCT </th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                
-                </table>
-            </section>
         </section>
+
+        <div class="product-modal">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Add New Product</h2>
+
+            <button class="close-modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <form id="add-product-form">
+
+            <div class="form-group">
+                <label for="product-name">Product Name</label>
+                <input 
+                    type="text" 
+                    id="product-name"
+                    placeholder="e.g. MacBook Pro 14"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="product-category">Category</label>
+                <select id="product-category" required>
+                    <option value="">Select category</option>
+                    <option value="Laptops">Laptops</option>
+                    <option value="Smartphones">Smartphones</option>
+                    <option value="Headphones">Headphones</option>
+                    <option value="Tablets">Tablets</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Smartwatches">Smartwatches</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="product-price">Price</label>
+                    <input 
+                        type="number"
+                        id="product-price"
+                        placeholder="999"
+                        min="0"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="product-stock">Stock</label>
+                    <input 
+                        type="number"
+                        id="product-stock"
+                        placeholder="20"
+                        min="0"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="product-image">Image URL</label>
+                <input 
+                    type="text"
+                    id="product-image"
+                    placeholder="assets/images/product.jpg"
+                    required
+                >
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn">
+                    Cancel
+                </button>
+
+                <button type="submit" class="save-product-btn">
+                    Add Product
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
     </aside>
+
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
         
     
     <script src="js/script.js"></script>
